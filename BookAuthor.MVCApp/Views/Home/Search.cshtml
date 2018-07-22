@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "Lista de Libros";
+}
+
+<h2>Search</h2>
+
+<div ng-app="myApp">
+    <div ng-controller="myCtrl" ng-init="GetSearchData()" class="divList">
+       
+        <div class="form-group" role="form">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Title:</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="inputTitle" placeholder="Title" ng-model="Title">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Edition:</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" datepicker-popup="dd/mm/yyyy" id="inputEdition" placeholder="Edition" ng-model="Edition"
+                                       is-open="opened"
+                                       close-text="Close">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Author:</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="inputTitle" placeholder="Title" ng-model="Author">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-lg-4">
+                        <input type="button" id="btnSearch" class="form-control btn-space" value="Search" ng-click="SearchData()" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <table cellpadding="12" class="table table-bordered table-hover">
+            <tr>
+
+
+                
+            
+                <td>
+                    <b>Title</b>
+                </td>
+                <td>
+                    <b>Edition</b>
+                </td>
+                <td>
+                    <b>Authors</b>
+                </td>
+
+
+            </tr>
+            <tr ng-repeat="item in book">
+                
+          
+                <td>
+                    {{item.Title}}
+                </td>
+                <td>
+                    {{item.Edition}}
+                </td>
+                <td>
+                    {{item.Authors}}
+                </td>
+            </tr>
+        </table>
+
+     
+    </div>
+    @Html.Hidden("Id")
+
+</div>
