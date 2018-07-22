@@ -11,7 +11,7 @@ namespace BookAuthor.DL.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(BookContext context)
@@ -21,7 +21,7 @@ namespace BookAuthor.DL.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
             base.Seed(context);
-            context.Books.Add(new Book()
+            context.Books.AddOrUpdate(new Book()
             {
                 
                 Title = "Test",
